@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daysnap App — Snap. Track. Achieve</title>
+    <link rel="shortcut icon" href="images/Daysnap favicon.png" type="image/x-icon">
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+
+
+</head>
+<body>
+
+<div id="header"></div>
+
+ <section class="contact-section" style="background-image: url('images/Contact form background.png');">
+  <div class="contact-container">
+    <form class="contact-form">
+      <h2 class="contact-title">Contact us!</h2>
+      <p class="contact-subtitle">Have questions or need support on your wellness journey? We're here to help!</p>
+      
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <div class="input-wrapper">
+          <input type="email" id="email" name="email" placeholder="@example.com" class="form-input">
+          <img src="images/contact form email field icon.svg" alt="email icon" class="input-icon">
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="name">Full Name</label>
+        <div class="input-wrapper">
+          <input type="text" id="name" name="name" placeholder="Your name" class="form-input">
+          <img src="images/contact form name field icon.svg" alt="name icon" class="input-icon">
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="message">Send your message</label>
+        <textarea id="message" name="message" placeholder="Let us know your questions..." class="form-input textarea-input" rows="2"></textarea>
+      </div>
+      
+      <button type="submit" class="submit-btn">
+  <span>Send</span>
+</button>
+    </form>
+  </div>
+</section>
+       <!-- ================ Custom Popup ================ -->
+
+<div id="customPopupOverlay" class="custom-popup-overlay">
+  <div class="custom-popup-box">
+    <button class="custom-close-btn" onclick="closeCustomPopup()">
+  <i class="fas fa-times"></i>
+</button>
+    
+    <h2 class="custom-popup-title">Sign Up for Early Access</h2>
+    <p class="custom-popup-description">
+      Get exclusive updates on launch, <br> features, and more.
+    </p>
+    
+    <form id="customEarlyAccessForm" class="custom-popup-form">
+      <input type="email" id="customEmailInput" placeholder="name@example.com" required>
+      
+      <button type="submit" class="submit-btn" id="signupButton">
+        <span class="button-text">JOIN THE WAITLIST</span>
+        <span class="spinner" style="display: none;">
+        </span>
+      </button>
+    </form>
+  </div>
+</div>
+
+<!-- ====================== Custom Alert System ====================== -->
+
+
+<div class="custom-alert-overlay" style="display: none;">
+    <div class="custom-alert-box">
+      <div class="alert-header">
+        <span class="alert-close">&times;</span>
+      </div>
+      <div class="alert-body">
+        <svg class="alert-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48">
+          <path fill="#fd9b32" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+        </svg>
+        <h3 class="alert-title" style="color: #414141;">New Message!</h3>
+        <p class="alert-message" style="color: #666;"></p>
+      </div>
+      <div class="alert-footer">
+        <button class="alert-confirm" style="background-color: #fd9b32; color: white;">OK</button>
+      </div>
+    </div>
+  </div>
+  
+
+
+
+  <!-- Partner Popup Section -->
+<div class="partner-popup-overlay" id="partnerPopup">
+    <div class="partner-popup-container">
+        <div class="partner-popup-close">
+            <i class="fas fa-times"></i>
+        </div>
+        
+        <h1 class="partner-popup-title">Partner with <span>Daysnap</span></h1>
+        <p class="partner-popup-subtitle">Are you a health org, gym, wellness creator, or college program? </br> <span>Let's get you started!</span></p>
+        
+        <div class="partner-options-container">
+            <a href="Referal-form.html" class="partner-option-box" id="Referal-form">
+                <div class="partner-option-icon">
+                    <img src="images/refer-friend-icon.png" alt="Referral">
+                </div>
+                <h3 class="partner-option-title">Refer a Friend</h3>
+                <p class="partner-option-description">Invite friends and earn rewards by sharing your unique link.</p>
+            </a>
+            
+            <a href="Affiliate-Program-Application.html" class="partner-option-box" id="partner-affiliate-option">
+                <div class="partner-option-icon">
+                    <img src="images/tabler_affiliate.png" alt="Affiliate">
+                </div>
+                <h3 class="partner-option-title">Join Affiliate Program</h3>
+                <p class="partner-option-description">Launch a Community Challenge, partner with Daysnap, and grow your community.</p>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div id="footer"></div>
+
+<script>
+  async function loadSharedSections() {
+    const header = await fetch('header.html').then(res => res.text());
+    const footer = await fetch('footer.html').then(res => res.text());
+
+    document.getElementById('header').innerHTML = header;
+    document.getElementById('footer').innerHTML = footer;
+  }
+
+  loadSharedSections();
+</script>
+
+
+    <!-- Bootstrap 5.3 JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+<script src="script.js"></script>
+</body>
+</html>
